@@ -6,6 +6,7 @@ class IceCreamController < ApplicationController
 
     get '/ice_creams/new' do 
         "Load form for user to create new ice cream."
+        erb :"ice_creams/new"
     end
 
     get '/ice_creams/:id' do 
@@ -18,6 +19,9 @@ class IceCreamController < ApplicationController
 
     post '/ice_creams' do 
         "Create an ice cream."
+        IceCream.create(params)
+        redirect "/ice_creams"
+
     end
 
     patch '/ice_creams/:id' do 
